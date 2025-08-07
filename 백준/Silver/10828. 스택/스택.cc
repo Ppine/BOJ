@@ -1,44 +1,44 @@
 #include <stdio.h>
 #include <string.h>
 
-using namespace std;
-
-int stack[10005], top=-1;
-
 int main()
 {
-    int n,k,i;
-    char a[10];
-
+    int n;
+    int cnt=0;
     scanf("%d",&n);
-    for(i=0; i<n; i++)
+    int stack[10005]={0};
+    char order[10];
+
+    for(int i=0; i<n; i++)
     {
-        scanf("\n"); scanf("%s",a);
-        if(strcmp(a,"push")==0)
+        scanf("%s",order);
+        if(strcmp(order,"push")==0)
         {
-            scanf("%d",&k);
-            stack[++top]=k;
+            scanf("%d",&stack[cnt]);
+            cnt++;
         }
-        else if(strcmp(a,"pop")==0)
+        if(strcmp(order,"top")==0)
         {
-            if(top<0) printf("-1\n");
-            else printf("%d\n",stack[top--]);
+            if(cnt==0) printf("-1\n");
+            else printf("%d\n",stack[cnt-1]);
         }
-        else if(strcmp(a,"size")==0)
+        if(strcmp(order,"size")==0) printf("%d\n",cnt);
+        if(strcmp(order,"empty")==0)
         {
-            if(top<0) printf("0\n");
-            else printf("%d\n",top+1);
-        }
-        else if(strcmp(a,"empty")==0)
-        {
-            if(top<0) printf("1\n");
+            if(cnt==0) printf("1\n");
             else printf("0\n");
         }
-        else if(strcmp(a,"top")==0)
+        if(strcmp(order,"pop")==0)
         {
-            if(top<0) printf("-1\n");
-            else printf("%d\n",stack[top]);
+            if(cnt==0) printf("-1\n");
+            else
+            {
+                printf("%d\n",stack[cnt-1]);
+                stack[cnt-1]=0;
+                cnt--;
+            }
         }
     }
+
     return 0;
 }

@@ -1,53 +1,40 @@
-#include <stdio.h>
-#include <string.h>
-#include <stack>
-#include <queue>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-queue <int> q;
+int main(void){
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-int main()
-{
-    int n,k,i;
-    char a[10];
-
-    scanf("%d",&n);
-    while(n--)
-    {
-        scanf(" %s",a);
-        if(strcmp(a,"push")==0)
-        {
-            scanf("%d",&k);
-            q.push(k);
-        }
-        else if(strcmp(a,"pop")==0)
-        {
-            if(q.empty()) printf("-1\n");
-            else 
-			{
-				printf("%d\n",q.front());
-				q.pop();
-			}
-        }
-        else if(strcmp(a,"size")==0)
-        {
-            printf("%d\n",q.size());
-        }
-        else if(strcmp(a,"empty")==0)
-        {
-            printf("%d\n",q.empty());
-        }
-        else if(strcmp(a,"front")==0)
-        {
-            if(q.empty()) printf("-1\n");
-            else printf("%d\n",q.front());
-        }
-        else if(strcmp(a,"back")==0)
-        {
-        	if(q.empty()) printf("-1\n");
-        	else printf("%d\n",q.back());
-		}
+  int n;
+  queue<int> q;
+  cin >> n;
+  string c;
+  while(n--){
+    cin >> c;
+    if(c=="push"){
+      int k;
+      cin >> k;
+      q.push(k);
     }
-    return 0;
+    else if(c=="pop"){
+      if(q.empty()) cout << "-1\n";
+      else{
+        cout << q.front() <<'\n';
+        q.pop();
+      }
+    }
+    else if(c=="size") cout << q.size()<<'\n';
+    else if(c=="empty") cout << q.empty()<<'\n';
+    else if(c=="front"){
+      if(q.empty()) cout << "-1\n";
+      else cout << q.front() <<'\n';
+    }
+    else if(c=="back"){
+      if(q.empty()) cout << "-1\n";
+      else cout << q.back() <<'\n';
+    }
+  }
+
+  
+  return 0;
 }

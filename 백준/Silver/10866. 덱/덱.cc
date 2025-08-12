@@ -1,69 +1,53 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-deque <int> q;
+int main(void){
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-int main()
-{
-    int n,k;
-    char a[100];
-    scanf("%d",&n);
-    while(n--)
-    {
-        scanf(" %s",a);
-        if(strcmp(a,"push_front")==0)
-        {
-            scanf("%d",&k);
-            q.push_front(k);
-        }
-        else if(strcmp(a,"push_back")==0)
-        {
-            scanf("%d",&k);
-            q.push_back(k);
-        }
-        else if(strcmp(a,"pop_front")==0)
-        {
-            if(q.empty()) printf("-1\n");
-            else
-            {
-                printf("%d\n",q.front());
-                q.pop_front();
-            }
-        }
-        else if(strcmp(a,"pop_back")==0)
-        {
-            if(q.empty()) printf("-1\n");
-            else
-            {
-                printf("%d\n",q.back());
-                q.pop_back();
-            }
-        }
-        else if(strcmp(a,"size")==0)
-        {
-            printf("%d\n",q.size());
-        }
-        else if(strcmp(a,"empty")==0)
-        {
-            printf("%d\n",q.empty());
-        }
-        else if(strcmp(a,"front")==0)
-        {
-            if(q.empty()) printf("-1\n");
-            else
-            {
-                printf("%d\n",q.front());
-            }
-        }
-        else if(strcmp(a,"back")==0)
-        {
-            if(q.empty()) printf("-1\n");
-            else
-            {
-                printf("%d\n",q.back());
-            }
-        }
+  int n;
+  deque<int> d;
+  cin >> n;
+
+  for(int i=0; i<n; i++){
+    string c;
+    cin >> c;
+    if(c=="push_front"){
+      int k;
+      cin >> k;
+      d.push_front(k);
     }
-    return 0;
+    if(c=="push_back"){
+      int k;
+      cin >> k;
+      d.push_back(k);
+    }
+    if(c=="pop_front"){
+      if(d.empty()) cout << -1 <<'\n';
+      else {
+        cout << d.front()<<'\n';
+        d.pop_front();
+      }
+    }
+    if(c=="pop_back"){
+      if(d.empty()) cout << -1<<'\n';
+      else {
+        cout << d.back()<<'\n';
+        d.pop_back();
+      }
+    }
+    if(c=="size") cout << d.size()<<'\n';
+    if(c=="empty") cout << d.empty()<<'\n';
+    if(c=="front"){
+      if(d.empty()) cout << -1<<'\n';
+      else cout << d.front()<<'\n';
+    }
+    if(c=="back"){
+      if(d.empty()) cout << -1<<'\n';
+      else cout << d.back()<<'\n';
+    }
+  }
+
+
+  return 0;
 }

@@ -3,20 +3,27 @@ using namespace std;
 
 #define r 31
 #define m 1234567891
+#define ll long long
 
 int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  int n,temp;
+  ll n,temp;
   cin >> n;
   string s;
   cin >> s;
 
-  int ans=0;
+  ll ans=0;
   for(int i=0; i<n; i++){
     temp = s[i]-'a'+1;
-    ans = ans + temp * pow(r,i);
+    for(int j=0; j<i; j++){
+      temp *= r;
+      temp %=m;
+    }
+    // temp *= pow(r,i);
+    // temp %=m;
+    ans += temp;
     ans %= m;
   }
   cout << ans;

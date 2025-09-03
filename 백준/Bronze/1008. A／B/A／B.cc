@@ -1,11 +1,15 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-int main()
-{
-    double a,b;
-    scanf("%lf%lf",&a,&b);
-    printf("%.9lf",a/b);
-    return 0;
+int main(void){
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  long double a,b;
+  cin >> a >> b;
+  cout.precision(10);
+  cout << a/b;
+
+
+  return 0;
 }
